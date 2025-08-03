@@ -1,0 +1,712 @@
+CORRECTION OF ASSIGNMENT
+A.STRING FUNCTION EXERSICES
+
+1.student_project_assigniment=# select concat(first_name,' ',last_name) as full_name from employee;
+   full_name
+---------------
+ Alice Johnson]
+ Bob Smith
+ Carol Adams
+ David Lee
+ Eve Martins
+ Frank Green
+ Grace Brown
+ Hank Wilson
+ Ivy Clark
+ Jake White
+(10 rows)
+
+2. Convert all employee names to lowercase.
+
+student_project_assigniment=# select lower(first_name)as names,lower(last_name) as surname from employee;
+ names | surname
+-------+---------
+ alice | johnson
+ bob   | smith
+ carol | adams
+ david | lee
+ eve   | martins
+ frank | green
+ grace | brown
+ hank  | wilson
+ ivy   | clark
+ jake  | white
+
+3. Extract first 3 letters of the employee's first name.
+
+student_project_assigniment=# select substring(first_name,1,3) from employee;
+ substring
+-----------
+ Ali
+ Bob
+ Car
+ Dav
+ Eve
+ Fra
+ Gra
+ Han
+ Ivy
+ Jak
+
+4. Replace '@company.com' in email with '@org.com'.
+student_project_assigniment=# select replace(email,'company','org') as email from employee;
+         email
+-----------------------
+ alice.johnson@org.com
+ bob.smith@org.com
+ carol.adams@org.com
+ david.lee@org.com
+ eve.martins@org.com
+ frank.green@org.com
+ grace.brown@org.com
+ hank.wilson@org.com
+ ivy.clark@org.com
+ jake.white@org.com
+
+
+
+5. Trim spaces from a padded string.
+
+student_project_assigniment=# select trim(first_name)as first_name,trim(last_name) as last_name,trim(email) as email from employee;
+ first_name | last_name |           email
+------------+-----------+---------------------------
+ Alice      | Johnson   | alice.johnson@company.com
+ Bob        | Smith     | bob.smith@company.com
+ Carol      | Adams     | carol.adams@company.com
+ David      | Lee       | david.lee@company.com
+ Eve        | Martins   | eve.martins@company.com
+ Frank      | Green     | frank.green@company.com
+ Grace      | Brown     | grace.brown@company.com
+ Hank       | Wilson    | hank.wilson@company.com
+ Ivy        | Clark     | ivy.clark@company.com
+ Jake       | White     | jake.white@company.com
+
+6. Count characters in an employee’s full name.
+
+student_project_assigniment=# select length(concat(first_name,last_name)) from employee;
+ length
+--------
+     12
+      8
+     10
+      8
+     10
+     10
+     10
+     10
+      8
+      9
+7. Find position of '@' in email using INSTR()/CHARINDEX().
+student_project_assigniment=# select position('@' in email) from employee;
+ position
+----------
+       14
+       10
+       12
+       10
+       12
+       12
+       12
+       12
+       10
+
+8. Add ‘Mr.’ or ‘Ms.’ before names based on gender (assume gender exists).
+student_project_assigniment=# select case when gender='male' then 'MR.'||first_name when gender='female' then 'MS.'||first_name end as full_name from employee;
+ full_name
+-----------
+ MR.Bob
+ MR.Carol
+ MR.David
+ MR.Frank
+ MR.Hank
+ MR.Ivy
+ MR.Jake
+ MS.Alice
+ MS.Eve
+ MS.Grace
+(10 rows)
+9. Format project names to uppercase.
+
+student_project_assigniment=# select upper(project_name) as project_name from projects;
+       project_name
+---------------------------
+ HR REVAMP
+ FINANCE AUTOMATION
+ IT INFRASTRUCTURE UPGRADE
+ MARKETING BLITZ 2025
+ LEGAL COMPLIANCE
+ CUSTOMER PORTAL
+ SALES BOOSTER
+ R&D PILOT
+ PROCUREMENT TRACKER
+ OPERATIONS STREAMLINE
+
+10. Remove any dashes from project names.
+
+student_project_assigniment=# select replace(project_name,'_','') from projects;
+          replace
+---------------------------
+ HR Revamp
+ Finance Automation
+ IT Infrastructure Upgrade
+ Marketing Blitz 2025
+ Legal Compliance
+ Customer Portal
+ Sales Booster
+ R&D Pilot
+ Procurement Tracker
+ Operations Streamline
+(10 rows)
+
+
+student_project_assigniment=# select replace('project_name','_','') from projects;
+   replace
+-------------
+ projectname
+ projectname
+ projectname
+ projectname
+ projectname
+ projectname
+ projectname
+ projectname
+ projectname
+ projectname
+(10 rows)
+11. Create a label like “Emp: John Doe (HR)”.
+
+12. Check email length for each employee.
+                                                ^
+student_project_assigniment=# select length(email) as email_length from employee;
+ email_length
+--------------
+           21
+           23
+           21
+           23
+           23
+           21
+           22
+           25
+           23
+           23
+
+13. Extract last name only from email (before @).
+                                                             ^
+student_project_assigniment=# select replace(email,email,concat(first_name,'.@gmail.com')) from employee;
+     replace
+------------------
+ Bob.@gmail.com
+ Carol.@gmail.com
+ David.@gmail.com
+ Frank.@gmail.com
+ Hank.@gmail.com
+ Ivy.@gmail.com
+ Jake.@gmail.com
+ Alice.@gmail.com
+ Eve.@gmail.com
+ Grace.@gmail.com
+
+14. Format: “LASTNAME, Firstname” using UPPER and CONCAT.
+
+student_project_assigniment=# select upper(concat(first_name,'  ',last_name)) from employee;
+     upper
+----------------
+ BOB  SMITH
+ CAROL  ADAMS
+ DAVID  LEE
+ FRANK  GREEN
+ HANK  WILSON
+ IVY  CLARK
+ JAKE  WHITE
+ ALICE  JOHNSON
+ EVE  MARTINS
+ GRACE  BROWN
+(10 rows)
+
+15. Add “(Active)” next to employee names who have current projects.
+
+
+
+
+Numeric Function Exercises (10)
+
+16. Round salary to the nearest whole number.
+
+student_project_assigniment=# select round(salary,0) from employee;
+ round
+-------
+  5200
+  6700
+  3800
+  6000
+  3100
+  2700
+  3600
+  4500
+  4000
+  4900
+
+17. Show only even salaries using MOD.
+
+student_project_assigniment=# select mod(salary,2) from employee where mod(salary,2)=0;
+ mod
+------
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+ 0.00
+(10 rows)
+18. Show difference between two project end/start dates using DATEDIFF.
+
+student_project_assigniment=# select end_date-start_date as days from projects;
+ days
+------
+  364
+  350
+
+  149
+  184
+  364
+  364
+
+  245
+  365
+
+19. Show absolute difference in salaries between two employees.
+
+
+20. Raise salary by 10% using POWER.
+
+student_project_assigniment=# select power(salary,10%100) as power_salary from employee;
+                power_salary
+--------------------------------------------
+  14455510594905702400000000000000000000.00
+ 182283780455176144900000000000000000000.00
+    627821184798822400000000000000000000.00
+  60466176000000000000000000000000000000.00
+     81962828698080100000000000000000000.00
+     20589113209464900000000000000000000.00
+    365615844006297600000000000000000000.00
+   3405062891601562500000000000000000000.00
+   1048576000000000000000000000000000000.00
+   7979226629761200100000000000000000000.00
+21. Generate a random number for testing IDs.
+
+22. Use CEIL and FLOOR on a floating salary.
+student_project_assigniment=# select ceil(salary) from employee;
+ ceil
+------
+ 5200
+ 6700
+ 3800
+ 6000
+ 3100
+ 2700
+ 3600
+ 4500
+ 4000
+ 4900
+(10 rows)
+
+
+student_project_assigniment=# select floor(salary) from employee;
+ floor
+-------
+  5200
+  6700
+  3800
+  6000
+  3100
+  2700
+  3600
+  4500
+  4000
+  4900
+23. Use LENGTH() on phone numbers (assume column exists).
+
+24. Categorize salary: High/Medium/Low using CASE.
+student_project_assigniment=# select case when salary>5000 then 'high' when salary>3000 then 'medium' else 'low' end as grade_salary from employee;
+ grade_salary
+--------------
+ high
+ high
+ medium
+ high
+ medium
+ low
+ medium
+ medium
+ medium
+ medium
+
+25. Count digits in salary amount.
+
+
+
+
+
+Date/Time Function Exercises (10)
+
+26. Show today’s date using CURRENT_DATE.
+
+student_project_assigniment=# select now()::date;
+    now
+------------
+ 2025-07-28
+
+27. Calculate how many days an employee has worked.
+ days_worked_by_employee
+-------------------------
+                     364
+                     350
+
+                     149
+                     184
+                     364
+                     364
+
+                     245
+                     365
+
+28. Show employees hired in the current year.
+
+student_project_assigniment=# select extract(year from hire_date) as current_year from employee;
+ current_year
+--------------
+         2018
+         2012
+         2020
+         2017
+         2013
+         2021
+         2022
+         2015
+         2019
+         2014
+29. Display current date and time using NOW().
+
+student_project_assigniment=# select now() as to_day_date from employee;
+          to_day_date
+-------------------------------
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+ 2025-07-28 07:45:50.424369-07
+
+30. Extract the year, month, and day from hire_date.
+
+student_project_assigniment=# select to_char(hire_date, 'YYYY month day')as hire_date from employee;
+        hire_date
+--------------------------
+ 2018 june      saturday
+ 2012 september monday
+ 2020 january   sunday
+ 2017 july      saturday
+ 2013 february  sunday
+ 2021 august    monday
+ 2022 may       thursday
+ 2015 march     sunday
+ 2019 december  wednesday
+ 2014 november  sunday
+
+31. Show employees hired before 2020.
+
+student_project_assigniment=# select concat(first_name,' ',last_name)as employe_hired_before_2020 from employee where  extract(year from hire_date)<2020;
+ employe_hired_before_2020
+---------------------------
+ Bob Smith
+ Carol Adams
+ Frank Green
+ Hank Wilson
+ Alice Johnson
+ Eve Martins
+ Grace Brown
+
+32. List projects that ended in the last 30 days.
+
+student_project_assigniment=# select project_id,project_name from projects where end_date-start_date>30;
+ project_id |     project_name
+------------+-----------------------
+        201 | HR Revamp
+        202 | Finance Automation
+        204 | Marketing Blitz 2025
+        205 | Legal Compliance
+        206 | Customer Portal
+        207 | Sales Booster
+        209 | Procurement Tracker
+        210 | Operations Streamline
+
+33. Calculate total days between project start and end dates.
+                   ^
+student_project_assigniment=# select sum(end_date-start_date) as total_days from projects;
+ total_days
+------------
+       2385
+
+34. Format date: ‘2025-07-23’ to ‘July 23, 2025’ (use CONCAT).
+
+student_project_assigniment=# select concat(to_char(date '2025-07-23','month'),'',extract(day from date '2025-07-23'),', ',extract(year from date '2025-07-23'))as formated_date;
+   formated_date
+-------------------
+ july     23, 2025
+(1 row)
+
+35. Add a CASE: if project still active (end_date IS NULL), show ‘Ongoing’.
+
+student_project_assigniment=# select case when end_date is null then upper('active') else upper('ongoing') end as projects_status from projects;
+ projects_status
+-----------------
+ ONGOING
+ ONGOING
+ ACTIVE
+ ONGOING
+ ONGOING
+ ONGOING
+ ONGOING
+ ACTIVE
+ ONGOING
+ ONGOING
+
+
+Conditional Function Exercises (15)
+
+36. Use CASE to label salaries.
+
+student_project_assigniment=# select case when salary>5367 then 'high' when salary>4034 then 'medium' else 'low' end salary_average from employee;
+ salary_average
+----------------
+ medium
+ high
+ low
+ high
+ low
+ low
+ low
+ medium
+ low
+ medium
+
+37. Use COALESCE to show ‘No Email’ if email is NULL.
+
+student_project_assigniment=# select coalesce(null,email,'no email') from employee;
+         coalesce
+---------------------------
+ bob.smith@company.com
+ carol.adams@company.com
+ david.lee@company.com
+ frank.green@company.com
+ hank.wilson@company.com
+ ivy.clark@company.com
+ jake.white@company.com
+ alice.johnson@company.com
+ eve.martins@company.com
+ no email
+		
+38. CASE: If hire_date < 2015, mark as ‘Veteran’.
+
+student_project_assigniment=# select employee_id,first_name, case when extract(year from hire_date)<2015 then 'veteran' end as output from employee;
+ employee_id | first_name | output
+-------------+------------+---------
+         102 | Bob        |
+         103 | Carol      | veteran
+         104 | David      |
+         106 | Frank      |
+         108 | Hank       | veteran
+         109 | Ivy        |
+         110 | Jake       |
+         101 | Alice      |
+         105 | Eve        |
+         107 | grace      |
+
+39. If salary is NULL, default it to 3000 using COALESCE.
+
+student_project_assigniment=# select coalesce(null,salary,3000) as updated_salary from employee;
+ updated_salary
+----------------
+        5200.00
+        6700.00
+        3800.00
+        6000.00
+        3100.00
+        2700.00
+        3600.00
+        4500.00
+        4000.00
+        4000.00
+
+40. CASE: Categorize departments (IT, HR, Other).
+
+student_project_assigniment=# select case when departement_name='Information Technology' then 'IT' when departement_name='Human Resources' then 'HR' when departement_name='Marketing' then 'MR' when departement_name='Legal' then 'L' when departement_name='Operations' then 'OP' when departement_name='Customer Service' then 'CR' when departement_name='Sales' then 'SL' when departement_name='Research and Development' then 'RD' when departement_name='Procurement' then 'P' when departement_name='Finance' then 'F' end as categories_of_departement from departments;
+ categories_of_departement
+---------------------------
+ HR
+ F
+ IT
+ MR
+ L
+ OP
+ CR
+ SL
+ RD
+ P
+
+41. CASE: If employee has no project, mark as ‘Unassigned’.
+
+
+42. CASE: Show tax band based on salary.
+
+student_project_assigniment=# select case when salary>4000 then salary*0.15 when salary>2000 then salary*0.10 else salary*0.05 end as tax from employee;
+    tax
+-----------
+  780.0000
+ 1005.0000
+  380.0000
+  900.0000
+  310.0000
+  270.0000
+  360.0000
+  675.0000
+  400.0000
+  400.0000
+43. Use nested CASE to label project duration.
+
+student_project_assigniment=# select case when end_date-start_date>184 then 'AboveHalf_OF_The_Year' when end_date-start_date<182 then 'UnderHalf_Of _the_year' else  'unded' end as projectDuration from projects;
+    projectduration
+------------------------
+ AboveHalf_OF_The_Year
+ AboveHalf_OF_The_Year
+ unded
+ UnderHalf_Of _the_year
+ unded
+ AboveHalf_OF_The_Year
+ AboveHalf_OF_The_Year
+ unded
+ AboveHalf_OF_The_Year
+ AboveHalf_OF_The_Year
+
+44. Use CASE with MOD to show even/odd salary IDs.
+
+student_project_assigniment=# select case when mod(salary,2)=0 then 'EVEN' else 'ODD' end as salary_IDs from employee;
+ salary_ids
+------------
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+ EVEN
+(10 rows)
+
+45. Combine COALESCE + CONCAT for fallback names.
+
+student_project_assigniment=# select coalesce(null,concat(first_name,' ',last_name),null) from employee;
+   coalesce
+---------------
+ Bob Smith
+ Carol Adams
+ David Lee
+ Frank Green
+ Hank Wilson
+ Ivy Clark
+ Jake White
+ Alice Johnson
+ Eve Martins
+ grace brown
+
+46. CASE with LENGTH(): if name length > 10, label “Long Name”.
+
+student_project_assigniment=# select case when length(concat(first_name,last_name))>10 then 'long name' else 'short name' end as fullName from employee;
+  fullname
+------------
+ short name
+ short name
+ short name
+ short name
+ short name
+ short name
+ short name
+ long name
+ short name
+ short name
+
+47. CASE + UPPER(): if email has ‘TEST’, mark as dummy account.
+
+student_project_assigniment=# select case when upper(email) like'%TEST%' then 'dummy account' else 'real account' end AS account from employee;
+   account
+--------------
+ real account
+ real account
+ real account
+ real account
+ real account
+ real account
+ real account
+ real account
+ real account
+ real account
+
+48. CASE: Show seniority based on hire year (e.g., Junior/Senior).
+
+student_project_assigniment=# select case when extract(year from hire_date)<2018 then 'Senior' else 'Junior' end as seniority from employee;
+ seniority
+-----------
+ Junior
+ Senior
+ Junior
+ Senior
+ Senior
+ Junior
+ Junior
+ Senior
+ Junior
+ Junior
+49. Use CASE to determine salary increment range.
+
+student_project_assigniment=# select case when salary>4000 then '5% increment' when salary>2000 then '3.2% increment' else '1 increment' end as increment_range from employee;
+ increment_range
+-----------------
+ 5% increment
+ 5% increment
+ 3.2% increment
+ 5% increment
+ 3.2% increment
+ 3.2% increment
+ 3.2% increment
+ 5% increment
+ 3.2% increment
+ 3.2% increment
+
+50. Use CASE with CURDATE() to determine anniversary month.
+
+student_project_assigniment=# select case when extract(month from hire_date)=extract(month from now()::date) then 'anniversary month' else 'not anniversary month' end as hire_date_anniversary from employee;
+ hire_date_anniversary
+-----------------------
+ not anniversary month
+ not anniversary month
+ not anniversary month
+ not anniversary month
+ not anniversary month
+ anniversary month
+ not anniversary month
+ not anniversary month
+ not anniversary month
+ not anniversary month
+
+
