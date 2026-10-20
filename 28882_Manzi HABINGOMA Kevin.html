@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unofficial Transcript - AUCA Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#003865',
+                            900: '#0a3b68',
+                            950: '#002548',
+                        },
+                        portal: {
+                            bg: '#f4f6f9',
+                            border: '#e2e8f0',
+                            text: '#334155',
+                            muted: '#94a3b8',
+                            headerBg: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f9;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+        }
+        .custom-border {
+            border-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 text-sm">
+        <div class="max-w-[1400px] mx-auto px-4 h-14 flex items-center justify-between gap-4">
+            
+            <!-- Left: Breadcrumb -->
+            <div class="flex items-center space-x-2 text-gray-500 font-medium shrink-0">
+                <a href="#" class="hover:text-gray-700"><i class="fa-solid fa-house text-gray-400"></i></a>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i>
+                <span class="text-gray-800 font-semibold">My transcript</span>
+            </div>
+
+            <!-- Center: Search & Term Pill -->
+            <div class="flex items-center space-x-3 flex-1 max-w-2xl justify-center">
+                <!-- Search bar -->
+                <div class="relative w-64 hidden md:block">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input type="text" placeholder="Search or navigate..." readonly class="w-full bg-gray-50 border border-gray-200 rounded-md pl-8 pr-12 py-1.5 text-xs text-gray-600 focus:outline-none cursor-pointer">
+                    <span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 border border-gray-200 rounded px-1 bg-white">Ctrl+/</span>
+                </div>
+
+                <!-- Academic Year Pill -->
+                <div class="flex items-center bg-gray-100 border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-700 font-medium">
+                    <i class="fa-regular fa-calendar text-gray-500 mr-2"></i>
+                    <span>SEPTEMBER 2026–2027</span>
+                    <span class="ml-2 bg-gray-300 text-gray-700 text-[10px] font-semibold px-1.5 py-0.5 rounded-full uppercase">Closed</span>
+                </div>
+            </div>
+
+            <!-- Right: User Profile & Notifications -->
+            <div class="flex items-center space-x-4 shrink-0">
+                <!-- Notification Bell -->
+                <div class="relative cursor-pointer">
+                    <i class="fa-regular fa-bell text-gray-600 text-base"></i>
+                    <span class="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>
+                </div>
+
+                <!-- User Avatar & Info -->
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-full bg-navy-900 text-white font-semibold flex items-center justify-center text-xs shadow-sm">
+                        MH
+                    </div>
+                    <div class="hidden lg:block leading-tight">
+                        <div class="text-xs font-bold text-gray-800">Manzi Habingoma Kevin</div>
+                        <div class="text-[11px] text-gray-500">Student</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-[1400px] mx-auto px-4 pt-4 space-y-4">
+
+        <!-- Banner Header Card -->
+        <section class="bg-navy-900 text-white rounded-lg p-5 shadow-sm">
+            <h1 class="text-xl font-bold tracking-tight">Unofficial Transcript</h1>
+            <p class="text-xs text-blue-100 mt-1 font-light">Self-service copy of your academic record</p>
+        </section>
+
+        <!-- Student Information Card -->
+        <section class="bg-white rounded-lg border border-gray-200 p-5 shadow-sm relative">
+            <!-- Unofficial Badge -->
+            <div class="absolute top-4 right-4 border border-gray-300 text-gray-500 text-[11px] font-bold px-2.5 py-0.5 rounded tracking-wide uppercase">
+                UNOFFICIAL
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-12 text-xs max-w-4xl">
+                <!-- Left Details -->
+                <div class="space-y-2">
+                    <div class="grid grid-cols-3">
+                        <span class="text-gray-500 font-medium">Reg. Nber</span>
+                        <span class="col-span-2 text-gray-800 font-medium">: 28881</span>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <span class="text-gray-500 font-medium">Name</span>
+                        <span class="col-span-2 text-gray-800 font-semibold">: Manzi Habingoma Kevin</span>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <span class="text-gray-500 font-medium">Programme</span>
+                        <span class="col-span-2 text-gray-800 font-medium">: Regular Day</span>
+                    </div>
+                </div>
+
+                <!-- Right Details -->
+                <div class="space-y-2">
+                    <div class="grid grid-cols-3">
+                        <span class="text-gray-500 font-medium">Faculty</span>
+                        <span class="col-span-2 text-gray-800 font-medium">: Faculty of Information Technology</span>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <span class="text-gray-500 font-medium">Major</span>
+                        <span class="col-span-2 text-gray-800 font-medium">: Networks and Communication Systems</span>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <span class="text-gray-500 font-medium">Minor</span>
+                        <span class="col-span-2 text-gray-800 font-medium">: N/A</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Box with Tables -->
+        <section class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+            
+            <!-- Filters Bar -->
+            <div class="border-b border-gray-200 px-4 py-3 flex flex-wrap items-center justify-start gap-4 text-xs">
+                <div class="flex items-center space-x-2">
+                    <span class="text-gray-600 font-medium">Year</span>
+                    <select class="border border-gray-300 rounded px-2 py-1 text-xs text-gray-700 bg-white focus:outline-none focus:border-blue-500">
+                        <option>All years</option>
+                    </select>
+                </div>
+
+                <div class="h-4 w-[1px] bg-gray-300 mx-1 hidden sm:block"></div>
+
+                <!-- Tabs -->
+                <div class="flex items-center space-x-4 overflow-x-auto text-gray-600 font-medium">
+                    <button class="text-navy-900 border-b-2 border-navy-900 pb-0.5 font-bold">All Courses</button>
+                    <span class="text-gray-300">|</span>
+                    <button class="hover:text-gray-900">General</button>
+                    <span class="text-gray-300">|</span>
+                    <button class="hover:text-gray-900">Major</button>
+                    <span class="text-gray-300">|</span>
+                    <button class="hover:text-gray-900">Complement</button>
+                    <span class="text-gray-300">|</span>
+                    <button class="hover:text-gray-900">Transfer</button>
+                    <span class="text-gray-300">|</span>
+                    <button class="hover:text-gray-900">Waived</button>
+                </div>
+            </div>
+
+            <!-- Main Transcript Table View -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="border-b border-gray-200 bg-gray-50 text-gray-500 font-semibold tracking-wider uppercase text-[11px]">
+                            <th class="py-2.5 px-4 w-12">SEM</th>
+                            <th class="py-2.5 px-4 w-64">COURSE CODE</th>
+                            <th class="py-2.5 px-4">COURSE DESCRIPTION</th>
+                            <th class="py-2.5 px-4 text-right w-20">CREDITS</th>
+                            <th class="py-2.5 px-4 text-right w-20">SCORE</th>
+                            <th class="py-2.5 px-4 text-center w-20">NOTES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 text-gray-700">
+                        
+                        <!-- ACADEMIC YEAR 2024-2025 HEADER -->
+                        <tr class="bg-gray-50/80 font-bold text-gray-800 border-t border-b border-gray-200">
+                            <td colspan="3" class="py-2 px-4 text-xs">Academic Year 2024-2025</td>
+                            <td colspan="3" class="py-2 px-4 text-right text-xs text-gray-500 font-normal">
+                                Cumul. Gen: <span class="font-semibold text-gray-700">13.41</span> | Maj: <span class="font-semibold text-gray-700">14.02</span>
+                            </td>
+                        </tr>
+
+                        <!-- AY 2024-2025 ROWS -->
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">ACCT 8112 <span class="text-gray-400 font-normal">(now ACC81102)</span></td>
+                            <td class="py-2 px-4">Principles of Accounting I</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">11.60</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">AMAT 8111 <span class="text-gray-400 font-normal">(now SEN81101)</span></td>
+                            <td class="py-2 px-4">Applied Mathematics</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">12.40</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">EDRM 8113 <span class="text-gray-400 font-normal">(now EPR81101)</span></td>
+                            <td class="py-2 px-4">Study and Research Methods</td>
+                            <td class="py-2 px-4 text-right">2</td>
+                            <td class="py-2 px-4 text-right font-medium">12.90</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">ENGL 8115 <span class="text-gray-400 font-normal">(now EEF81105)</span></td>
+                            <td class="py-2 px-4">General English</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">14.90</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8117 <span class="text-gray-400 font-normal">(now IMA81101)</span></td>
+                            <td class="py-2 px-4">Introduction to Computer Applications</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">13.50</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">RELB 8116 <span class="text-gray-400 font-normal">(now THE81103)</span></td>
+                            <td class="py-2 px-4">Introduction to Bible Study</td>
+                            <td class="py-2 px-4 text-right">2</td>
+                            <td class="py-2 px-4 text-right font-medium">13.60</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8121 <span class="text-gray-400 font-normal">(now NET81201)</span></td>
+                            <td class="py-2 px-4">Computer Maintenances</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">15.18</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8222 <span class="text-gray-400 font-normal">(now IMA82102)</span></td>
+                            <td class="py-2 px-4">Database Management Systems</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">14.48</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">RELT 8123 <span class="text-gray-400 font-normal">(now THE81213)</span></td>
+                            <td class="py-2 px-4">Bible Doctrines</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">12.00</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+
+                        <!-- ACADEMIC YEAR 2025-2026 HEADER -->
+                        <tr class="bg-gray-50/80 font-bold text-gray-800 border-t border-b border-gray-200">
+                            <td colspan="3" class="py-2 px-4 text-xs">Academic Year 2025-2026</td>
+                            <td colspan="3" class="py-2 px-4 text-right text-xs text-gray-500 font-normal">
+                                Cumul. Gen: <span class="font-semibold text-gray-700">12.43</span> | Maj: <span class="font-semibold text-gray-700">13.32</span>
+                            </td>
+                        </tr>
+
+                        <!-- AY 2025-2026 ROWS -->
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">1</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">COSC 8220 <span class="text-gray-400 font-normal">(now NET82205)</span></td>
+                            <td class="py-2 px-4">Routing and Switching</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">12.30</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">1</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8122 <span class="text-gray-400 font-normal">(now SEN81202)</span></td>
+                            <td class="py-2 px-4">Introduction to Computer Programming</td>
+                            <td class="py-2 px-4 text-right">4</td>
+                            <td class="py-2 px-4 text-right font-medium">10.90</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">1</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">MATH 8127 <span class="text-gray-400 font-normal">(now NET81202)</span></td>
+                            <td class="py-2 px-4">Digital Computer Fundamentals</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">10.90</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">1</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">SENG 8215 <span class="text-gray-400 font-normal">(now SEN82104)</span></td>
+                            <td class="py-2 px-4">Software Engineering</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">13.10</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">1</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">STAT 8122 <span class="text-gray-400 font-normal">(now SEN81203)</span></td>
+                            <td class="py-2 px-4">Descriptive Statistics</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">10.00</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">ENGL 8124 <span class="text-gray-400 font-normal">(now EEF82123)</span></td>
+                            <td class="py-2 px-4">Academic English Writing</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">13.10</td>
+                            <td class="py-2 px-4 text-center">√*</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8211 <span class="text-gray-400 font-normal">(now NET82103)</span></td>
+                            <td class="py-2 px-4">Computer Networks</td>
+                            <td class="py-2 px-4 text-right">4</td>
+                            <td class="py-2 px-4 text-right font-medium">13.68</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8212 <span class="text-gray-400 font-normal">(now SEN82105)</span></td>
+                            <td class="py-2 px-4">Programming with C</td>
+                            <td class="py-2 px-4 text-right">4</td>
+                            <td class="py-2 px-4 text-right font-medium">14.16</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">MATH 8214 <span class="text-gray-400 font-normal">(now SEN82106)</span></td>
+                            <td class="py-2 px-4">Multivariable Calculus and ODE</td>
+                            <td class="py-2 px-4 text-right">4</td>
+                            <td class="py-2 px-4 text-right font-medium">12.10</td>
+                            <td class="py-2 px-4 text-center font-bold text-gray-800">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">STAT 8225 <span class="text-gray-400 font-normal">(now SEN82209)</span></td>
+                            <td class="py-2 px-4">Probability and Statistics</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">12.00</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        
+                        <!-- Greyed Out Row (Incomplete / Non-counted) -->
+                        <tr class=" hover:bg-gray-50/50">
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4 font-medium">COSC 8322 (now NET83210)</td>
+                            <td class="py-2 px-4">Multimedia Computing</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right">14.23</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8313 <span class="text-gray-400 font-normal">(now IMA83104)</span></td>
+                            <td class="py-2 px-4">Management Information Systems</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">13.80</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4 font-semibold text-gray-800">INSY 8314 <span class="text-gray-400 font-normal">(now SEN83111)</span></td>
+                            <td class="py-2 px-4">Web Design</td>
+                            <td class="py-2 px-4 text-right">3</td>
+                            <td class="py-2 px-4 text-right font-medium">12.70</td>
+                            <td class="py-2 px-4 text-center">√</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Table Footer Note -->
+            <div class="px-4 py-3 bg-gray-50/50 border-t border-gray-200 text-gray-500 italic text-xs">
+                Greyed rows do not count towards the averages (waived, transferred, non-credit, ungraded, or a failed attempt of a course later passed). See the notes legend below.
+            </div>
+        </section>
+
+        <!-- Signature Card -->
+        <section class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm text-xs space-y-6">
+            <div>At Kigali, on 20 October 2026</div>
+            <div class="pt-8 border-b border-gray-200 max-w-xs"></div>
+            <div>
+                <div class="font-bold text-gray-900">Director for Admissions and Academic Records</div>
+                <div class="text-gray-600 mt-0.5">Eng. Nsengiyumva Juvenal</div>
+            </div>
+        </section>
+
+        <!-- Notes & Grading System Section -->
+        <section class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden text-xs">
+            <!-- Title Header -->
+            <div class="bg-gray-50 px-5 py-3 border-b border-gray-200 font-bold text-navy-900 tracking-wider">
+                NOTES & GRADING SYSTEM
+            </div>
+
+            <div class="p-5 space-y-6">
+                <!-- Top Two Column Grid for Notes & Semesters -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Left: NOTES -->
+                    <div class="space-y-2">
+                        <h3 class="font-bold text-navy-900 uppercase tracking-wide">NOTES</h3>
+                        <div class="space-y-1 text-gray-700">
+                            <div class="flex items-start"><span class="w-12 font-semibold">√</span><span>Successful completion</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">√</span><span>Failure</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">TF</span><span>Transferred</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">WV</span><span>Waived course</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">IN</span><span>Incomplete grade</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">NC</span><span>Non-credit course, not counted in averages (mark not shown)</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">*</span><span>General education (appended, e.g. √*)</span></div>
+                            <div class="flex items-start"><span class="w-12 font-semibold">+</span><span>Complementary course (appended, e.g. √+)</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Right: SEMESTERS & CREDIT-HOUR -->
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-navy-900 uppercase tracking-wide">SEMESTERS</h3>
+                            <div class="space-y-1 text-gray-700">
+                                <div class="flex"><span class="w-8 font-semibold">1</span><span>September – December</span></div>
+                                <div class="flex"><span class="w-8 font-semibold">2</span><span>January – May</span></div>
+                                <div class="flex"><span class="w-8 font-semibold">3</span><span>June – July (Summer Semester)</span></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-navy-900 uppercase tracking-wide">CREDIT-HOUR</h3>
+                            <p class="text-gray-700">1 credit equals 15 hours. 0 credit means no-credit course.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Horizontal Separator -->
+                <div class="border-t border-gray-200 pt-4 space-y-2">
+                    <h3 class="font-bold text-navy-900 uppercase tracking-wide">CONDITIONS OF PROMOTION</h3>
+                    <p class="text-gray-700 leading-relaxed max-w-6xl">
+                        A general cumulative mean of 12/20 is required to obtain a BA degree. Courses transferred in, and courses not in the major, do not affect the calculation of means. Failed courses are not part of the mean calculation if they are retaken and passed.
+                    </p>
+                </div>
+
+                <!-- AUCA Grading System Table -->
+                <div class="border-t border-gray-200 pt-4 space-y-3">
+                    <h3 class="font-bold text-navy-900 uppercase tracking-wide">AUCA GRADING SYSTEM</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="border-b border-gray-200 text-gray-500 font-semibold">
+                                    <th class="py-2 px-2">Score (out of 20)</th>
+                                    <th class="py-2 px-2">Classification</th>
+                                    <th class="py-2 px-2">Honors</th>
+                                    <th class="py-2 px-2 text-center font-bold">Grade</th>
+                                    <th class="py-2 px-2 text-right">Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 text-gray-700">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-2 font-semibold">16.00 - 20.00</td>
+                                    <td class="py-2 px-2">Grand Distinction</td>
+                                    <td class="py-2 px-2">First Class Honors</td>
+                                    <td class="py-2 px-2 text-center font-bold">A</td>
+                                    <td class="py-2 px-2 text-right">80–100%</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-2 font-semibold">14.00 - 15.99</td>
+                                    <td class="py-2 px-2">Distinction</td>
+                                    <td class="py-2 px-2">Second Class Honors, Upper Division</td>
+                                    <td class="py-2 px-2 text-center font-bold">B</td>
+                                    <td class="py-2 px-2 text-right">70–79%</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-2 font-semibold">12.00 - 13.99</td>
+                                    <td class="py-2 px-2">Satisfaction</td>
+                                    <td class="py-2 px-2">Second Class Honors, Lower Division</td>
+                                    <td class="py-2 px-2 text-center font-bold">C</td>
+                                    <td class="py-2 px-2 text-right">60–69%</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-2 font-semibold">0.00 - 11.99</td>
+                                    <td class="py-2 px-2">Fail</td>
+                                    <td class="py-2 px-2">N/A</td>
+                                    <td class="py-2 px-2 text-center font-bold">F</td>
+                                    <td class="py-2 px-2 text-right">0–59%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
